@@ -22,3 +22,22 @@ Installation of Memcached in CentOS7
  ```sh
   memcached -p 11211 -U 11111 -u memcached -d
  ```
+ ### Starting the firewall and allowing the port 11211 to access memcache (Optional)
+~~~
+systemctl enable firewalld
+~~~
+~~~
+systemctl start firewalld
+~~~
+~~~
+systemctl status firewalld
+~~~
+~~~
+firewall-cmd --add-port=11211/tcp --permanent
+~~~
+~~~
+firewall-cmd --reload
+~~~
+~~~
+memcached -p 11211 -U 11111 -u memcache -d
+~~~
